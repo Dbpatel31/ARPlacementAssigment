@@ -1,11 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "com.example.arplacement"
     compileSdk = 35
+
+
 
     defaultConfig {
         applicationId = "com.example.arplacement"
@@ -36,7 +39,14 @@ android {
 }
 
 dependencies {
-
+    implementation("com.google.ar:core:1.41.0") // Use latest ARCore
+//    implementation("com.gorisse.thomas.sceneform:sceneform:1.21.0")
+//    implementation("com.gorisse.thomas.sceneform:core:1.21.0")
+    implementation("com.google.ar.sceneform:filament-android:1.17.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.sceneform.ux)
+    kapt("com.github.bumptech.glide:compiler:4.15.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
